@@ -1,9 +1,12 @@
 import React from "react";
+import EventCard from "./components/EventCard";
+import Display from "./components/Display";
 
 function App() {
   return (
     <div>
-      <h2>GA SEI</h2>
+      <Display />
+      <EventCard />
     </div>
   );
 }
