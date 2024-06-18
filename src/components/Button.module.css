@@ -1,0 +1,15 @@
+.btn {
+  border: 0;
+  border-radius: 20px;
+  height: 30px;
+  width: 130px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.2s, color 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: rgb(80, 88, 247);
+  color: white;
+}

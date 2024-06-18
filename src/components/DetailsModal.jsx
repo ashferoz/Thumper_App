@@ -1,23 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
+import Button from "./Button";
 
 const OverLay = (props) => {
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        <br />
-        <br />
         <div>
-          {props.image}
-          {props.name}
           <button
-            className="col-md3"
+            className={`${styles.closeBtn} fa-solid fa-xmark`}
             onClick={() => props.setShowUpdateModal(false)}
-          >
-            Close
-          </button>
-          <div className="col-md-3"></div>
+          />
+          <div className={styles.details}>
+            <h4>{props.name}</h4>
+            <hr />
+            <p>Date: {props.date}</p>
+            <p>Time: {props.time}</p>
+            <p>Venue: {props.venue}</p>
+            <p>
+              Genre: {props.genre} {props.subGenre}
+            </p>
+            <div className={styles.btnContainer}>
+              <Button>I'm going!</Button>
+              <Button>Save for later</Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +40,11 @@ const DetailsModal = (props) => {
           key={props.index}
           name={props.name}
           image={props.image}
+          date={props.date}
+          time={props.time}
+          venue={props.venue}
+          genre={props.genre}
+          subGenre={props.subGenre}
           setShowUpdateModal={props.setShowUpdateModal}
         />,
         document.querySelector("#root")

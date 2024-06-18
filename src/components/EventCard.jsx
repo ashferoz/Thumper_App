@@ -29,7 +29,17 @@ const EventCard = () => {
     <div>
       {events.map((item, index) => {
         return (
-          <Event key={index} name={item.name} image={item.images[6].url} />
+          <Event
+            key={index}
+            name={item.name}
+            image={item.images[6].url}
+            imageModal={item.images[6].url}
+            date={item.dates.start.localDate}
+            time={item.dates.start.localTime}
+            genre={item.classifications[0].genre.name}
+            subGenre={item.classifications[0].subGenre.name}
+            venue={item._embedded.venues[0].name}
+          />
         );
       })}
     </div>
