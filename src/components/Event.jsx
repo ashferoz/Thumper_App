@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Event.module.css";
+import DetailsModal from "./DetailsModal";
 
 const Event = (props) => {
-  console.log(props);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   return (
     <div>
-      <div className={styles.overlay}>
-      <h3>{props.name}</h3>
+      <div className={styles.overlay} onClick={() => setShowUpdateModal(true)}>
+        <h3>{props.name}</h3>
       </div>
-      <div className={styles.imageContainer}>
-        <img src={props.image} />
+      <div
+        className={styles.imageContainer}
         
+      >
+        <img src={props.image} />
       </div>
+      {showUpdateModal && (
+        <DetailsModal
+          name={props.name}
+          image={props.image}
+          setShowUpdateModal={setShowUpdateModal}
+        />
+      )}
     </div>
   );
 };

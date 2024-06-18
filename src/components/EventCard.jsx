@@ -28,9 +28,10 @@ const EventCard = () => {
   return (
     <div>
       {events.map((item, index) => {
-        return <Event key={index} name={item.name} image={item.images[6].url}/>;
+        return (
+          <Event key={index} name={item.name} image={item.images[6].url} />
+        );
       })}
-      
     </div>
   );
 };
