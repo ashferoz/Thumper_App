@@ -4,11 +4,14 @@ const UserPage = (props) => {
   const [userEvents, setUserEvents] = useState([]);
   const getUserData = async () => {
     try {
-      const res = await fetch(import.meta.env.VITE_AIRTABLE, {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
-        },
-      });
+      const res = await fetch(
+        import.meta.env.VITE_AIRTABLE + "/recgTIX3IGXHN6bYq",
+        {
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+          },
+        }
+      );
       if (!res.ok) {
         throw new Error("fetch error");
       }
@@ -35,12 +38,12 @@ const UserPage = (props) => {
             <div>
               <img src={item.fields.image} />
             </div>
-            <p>{item.fields.event}</p>
+            <p>{item.fields.band}</p>
           </div>
 
           <div className="container">
             <h3>Interested in</h3>
-            <p>{item.fields.event}</p>
+            <p>{item.fields.band}</p>
           </div>
 
           <div className="container">

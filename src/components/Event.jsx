@@ -7,14 +7,14 @@ const Event = (props) => {
   return (
     <div>
       <div className={styles.overlay} onClick={() => setShowUpdateModal(true)}>
-        <h3>{props.name}</h3>
+        <h3>{props.band}</h3>
       </div>
       <div className={styles.imageContainer}>
         <img src={props.image} className="eventImage" />
       </div>
       {showUpdateModal && (
         <DetailsModal
-          name={props.name}
+          band={props.band}
           image={props.image}
           date={props.date}
           time={props.time}

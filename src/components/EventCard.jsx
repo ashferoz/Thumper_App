@@ -30,7 +30,7 @@ const EventCard = () => {
         return (
           <Event
             key={index}
-            name={item.name}
+            band={item.name}
             image={item.images[6].url}
             imageModal={item.images[6].url}
             date={item.dates.start.localDate}
