@@ -9,14 +9,21 @@ const UserPage = (props) => {
     props.getUserData();
   }, []);
 
+  const goingEvents = props.userData.filter(
+    (item) => item.fields.type === "going"
+  );
+  const interestedEvents = props.userData.filter(
+    (item) => item.fields.type === "interested"
+  );
+  
   return (
     <>
       <h1>Hello Ash.</h1>
       <hr />
 
       <div className="container">
-        <h3>Upcoming concerts</h3>
-        {props.userData.map((item) => (
+        <h3>Your upcoming events</h3>
+        {goingEvents.map((item) => (
           <UserGoingEventCard
             key={item.id}
             band={item.fields.band}
@@ -29,7 +36,7 @@ const UserPage = (props) => {
 
       <div className="container">
         <h3>Interested in</h3>
-        {props.userData.map((item) => (
+        {interestedEvents.map((item) => (
           <UserInterestedEventCard
             key={item.id}
             band={item.fields.band}
@@ -41,7 +48,7 @@ const UserPage = (props) => {
       </div>
 
       <div className="container">
-        <h3>Review your past events</h3>
+        <h3>Review past events</h3>
         {props.userData.map((item) => (
           <ReviewCard
             key={item.id}

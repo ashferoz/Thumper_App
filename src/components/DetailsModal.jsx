@@ -4,7 +4,7 @@ import styles from "./Modal.module.css";
 import Button from "./Button";
 
 const OverLay = (props) => {
-  const addUserData = async () => {
+  const addUserData = async (type) => {
     console.log(props);
     try {
       const res = await fetch(import.meta.env.VITE_AIRTABLE, {
@@ -22,6 +22,7 @@ const OverLay = (props) => {
             date: props.date,
             time: props.time,
             venue: props.venue,
+            type: type,
           },
         }),
       });
@@ -35,7 +36,12 @@ const OverLay = (props) => {
   };
 
   const handleGoingBtn = () => {
-    addUserData();
+    addUserData("going");
+    props.setShowUpdateModal(false);
+  };
+
+  const handleSaveForLaterBtn = () => {
+    addUserData("interested");
     props.setShowUpdateModal(false);
   };
 
@@ -64,7 +70,7 @@ const OverLay = (props) => {
               >
                 I'm going!
               </Button>
-              <Button onClick={handleGoingBtn}>Save for later</Button>
+              <Button onClick={handleSaveForLaterBtn}>Save for later</Button>
               <Button onClick={handleGoingBtn}>Show similar events</Button>
             </div>
           </div>
