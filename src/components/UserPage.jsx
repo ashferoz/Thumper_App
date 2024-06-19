@@ -8,10 +8,11 @@ const UserPage = (props) => {
 
   return (
     <>
+    <h1>Hello Ash.</h1>
+    <hr />
       {props.userData.map((item) => (
         <div key={item.id}>
-          <h1>Hello {item.fields.name}.</h1>
-          <hr />
+          
           <div className="container">
             <h3>Upcoming concerts</h3>
             <div className={styles.imageContainer}>

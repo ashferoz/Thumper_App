@@ -31,11 +31,6 @@ const OverLay = (props) => {
     }
   };
 
-  // useEffect(() => {
-  //   props.getData();
-
-  // }, []);
-
   const handleGoingBtn = () => {
     addUserData();
     props.setShowUpdateModal(false);
@@ -57,21 +52,17 @@ const OverLay = (props) => {
               <p>Time: {props.time}</p>
               <p>Venue: {props.venue}</p>
               <p>
-                Genre: {props.genre} {props.subGenre}
+                Genre: {props.genre}, {props.subGenre}
               </p>
-              <div className={styles.btnContainer}>
-                <Button
-                  onClick={handleGoingBtn}
-                  setShowUpdateModal={props.setShowUpdateModal}
-                >
-                  I'm going!
-                </Button>
-                <Button
-                  setShowUpdateModal={() => props.setShowUpdateModal(false)}
-                >
-                  Save for later
-                </Button>
-              </div>
+
+              <Button
+                onClick={handleGoingBtn}
+                setShowUpdateModal={props.setShowUpdateModal}
+              >
+                I'm going!
+              </Button>
+              <Button onClick={handleGoingBtn}>Save for later</Button>
+              <Button onClick={handleGoingBtn}>Show similar events</Button>
             </div>
           </div>
         </div>
