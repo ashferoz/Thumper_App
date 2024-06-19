@@ -1,12 +1,12 @@
 import React from "react";
 import EventCard from "./EventCard";
 
-const Display = () => {
+const Display = (props) => {
   return (
     <>
       <h1>Events Around You</h1>
       <hr />
-      <EventCard />
+      <EventCard getUserData={props.getUserData}/>
       
     </>
   );

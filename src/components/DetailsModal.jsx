@@ -4,33 +4,8 @@ import styles from "./Modal.module.css";
 import Button from "./Button";
 
 const OverLay = (props) => {
-  const [userEvents, setUserEvents] = useState([]);
-  const getUserData = async () => {
-    try {
-      const res = await fetch(
-        import.meta.env.VITE_AIRTABLE + "/recgTIX3IGXHN6bYq",
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
-          },
-        }
-      );
-      if (!res.ok) {
-        throw new Error("fetch error");
-      }
-      const data = await res.json();
-      setUserEvents([data]);
-      console.log(data);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getUserData();
-  }, []);
-
-  const addUserData = async (name, band, reviews, image) => {
+  const addUserData = async () => {
+    console.log(props);
     try {
       const res = await fetch(import.meta.env.VITE_AIRTABLE, {
         method: "POST",
@@ -39,25 +14,27 @@ const OverLay = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          records: [
-            {
-              fields: {
-                name: props.name,
-                band: props.band,
-                reviews: props.reviews,
-                image: props.image,
-              },
-            },
-          ],
+          fields: {
+            name: props.name,
+            band: props.band,
+            reviews: props.reviews,
+            image: props.image,
+          },
         }),
       });
       if (!res.ok) {
         throw new Error("fetch error");
       }
+      props.getUserData();
     } catch (err) {
       console.log(err.message);
     }
   };
+
+  // useEffect(() => {
+  //   props.getData();
+
+  // }, []);
 
   const handleGoingBtn = () => {
     addUserData();
@@ -84,14 +61,14 @@ const OverLay = (props) => {
               </p>
               <div className={styles.btnContainer}>
                 <Button
-                  onClick={() => {
-                    handleGoingBtn();
-                  }}
+                  onClick={handleGoingBtn}
                   setShowUpdateModal={props.setShowUpdateModal}
                 >
                   I'm going!
                 </Button>
-                <Button setShowUpdateModal={props.setShowUpdateModal}>
+                <Button
+                  setShowUpdateModal={() => props.setShowUpdateModal(false)}
+                >
                   Save for later
                 </Button>
               </div>
@@ -118,6 +95,7 @@ const DetailsModal = (props) => {
           subGenre={props.subGenre}
           setShowUpdateModal={props.setShowUpdateModal}
           getData={props.getData}
+          getUserData={props.getUserData}
         />,
         document.querySelector("#root")
       )}

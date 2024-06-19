@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Event from "./Event";
 
-const EventCard = () => {
+const EventCard = (props) => {
   const [events, setEvents] = useState([]);
   const getData = async () => {
     try {
@@ -39,6 +39,7 @@ const EventCard = () => {
             subGenre={item.classifications[0].subGenre.name}
             venue={item._embedded.venues[0].name}
             getData={getData}
+            getUserData={props.getUserData}
           />
         );
       })}
