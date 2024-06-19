@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./UserGoingEventCard.module.css";
+import styles from "./css/UserGoingEventCard.module.css";
 
 const UserGoingEventCard = (props) => {
   return (

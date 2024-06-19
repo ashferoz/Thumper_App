@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import styles from "./UserPage.module.css";
+import React, { useEffect } from "react";
 import UserGoingEventCard from "./UserGoingEventCard";
 import UserInterestedEventCard from "./UserInterestedEventCard";
 import ReviewCard from "./ReviewCard";
@@ -15,7 +14,7 @@ const UserPage = (props) => {
   const interestedEvents = props.userData.filter(
     (item) => item.fields.type === "interested"
   );
-  
+
   return (
     <>
       <h1>Hello Ash.</h1>

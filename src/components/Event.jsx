@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Event.module.css";
+import styles from "./css/Event.module.css";
 import DetailsModal from "./DetailsModal";
 
 const Event = (props) => {

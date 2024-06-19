@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./UserInterestedEventCard.module.css";
+import styles from "./css/UserInterestedEventCard.module.css";
 
 const UserInterestedEventCard = (props) => {
   return (

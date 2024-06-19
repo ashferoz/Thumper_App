@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import styles from "./Modal.module.css";
+import styles from "./css/Modal.module.css";
 import Button from "./Button";
 
 const OverLay = (props) => {
