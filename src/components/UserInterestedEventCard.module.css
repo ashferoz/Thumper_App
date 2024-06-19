@@ -1,0 +1,19 @@
+.box {
+  display: inline-block;
+  background: rgb(255, 114, 175);
+  color: black;
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+  padding: 25px;
+  transition: background 0.5s;
+  margin-right: 20px;
+}
+
+.box:hover {
+  background: rgb(255, 151, 196);
+}
+
+.box p {
+  font-size: 18px;
+}
