@@ -15,12 +15,14 @@ const Event = (props) => {
       {showUpdateModal && (
         <DetailsModal
           name={props.name}
+          image={props.image}
           date={props.date}
           time={props.time}
           setShowUpdateModal={setShowUpdateModal}
           genre={props.genre}
           subGenre={props.subGenre}
           venue={props.venue}
+          getData={props.getData}
         />
       )}
     </div>

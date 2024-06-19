@@ -23,14 +23,18 @@
 }
 
 .closeBtn {
-border: 0;
-background: none;
-cursor: pointer;
-position: absolute;
-right: 10px;
-top: 10px;
-color: rgb(255, 255, 255);
-font-size: 24px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+}
+
+.closeBtn:active {
+  color: rgb(205, 201, 255);
 }
 
 .details {
@@ -38,7 +42,7 @@ font-size: 24px;
 }
 
 .details h4 {
- font-size: 60px;
+  font-size: 60px;
 }
 
 .details p {
@@ -50,4 +54,3 @@ font-size: 24px;
   justify-content: space-between;
   width: 35%;
 }
-

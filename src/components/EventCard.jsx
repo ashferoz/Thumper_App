@@ -15,7 +15,6 @@ const EventCard = () => {
       }
       const data = await res.json();
       setEvents(data._embedded.events);
-      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -39,6 +38,7 @@ const EventCard = () => {
             genre={item.classifications[0].genre.name}
             subGenre={item.classifications[0].subGenre.name}
             venue={item._embedded.venues[0].name}
+            getData={getData}
           />
         );
       })}
