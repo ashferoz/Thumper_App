@@ -8,6 +8,8 @@
   padding: 25px;
   transition: background 0.5s;
   margin-right: 20px;
+  white-space: wrap;
+  flex: 0 0 auto;
 }
 
 .box:hover {
