@@ -19,6 +19,7 @@ function App() {
       }
       const data = await res.json();
       setUserData(data.records);
+      console.log(data.records);
     } catch (err) {
       console.log(err.message);
     }

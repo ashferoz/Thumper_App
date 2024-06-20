@@ -15,7 +15,6 @@ const Display = (props) => {
       }
       const data = await res.json();
       setEvents(data._embedded.events);
-      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -26,8 +25,10 @@ const Display = (props) => {
   }, []);
   return (
     <>
-      <h1>Events Around You</h1>
-      <hr />
+      <div className="container">
+        <h1>Events Around You</h1>
+        <hr />
+      </div>
       <div>
         {events.map((item, index) => {
           return (

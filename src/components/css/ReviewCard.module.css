@@ -1,9 +1,9 @@
 .box {
   display: inline-block;
-  background: rgb(15, 213, 111);
+  background: rgb(255, 124, 37);
   color: black;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 200px;
   border-radius: 30px;
   padding: 25px;
   transition: background 0.5s;
@@ -14,9 +14,15 @@
 }
 
 .box:hover {
-  background: rgb(84, 222, 151);
+  background: rgb(255, 140, 63);
 }
 
 .box p {
   font-size: 18px;
+}
+
+.reviewBtn {
+  position: absolute;
+  transform: translateX(70%);
+  bottom: 25%;
 }

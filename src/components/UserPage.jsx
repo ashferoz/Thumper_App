@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import UserGoingEventCard from "./UserGoingEventCard";
 import UserInterestedEventCard from "./UserInterestedEventCard";
 import ReviewCard from "./ReviewCard";
 import styles from "./css/UserPage.module.css";
 
 const UserPage = (props) => {
+  const [userReview, setUserReview] = useState('')
   const deleteUserData = async (id) => {
     const res = await fetch(import.meta.env.VITE_AIRTABLE + id, {
       method: "DELETE",
@@ -29,7 +30,8 @@ const UserPage = (props) => {
       },
       body: JSON.stringify({
         fields: {
-          type: 'going',
+          type: "going",
+          review: userReview,
         },
       }),
     });
@@ -55,12 +57,15 @@ const UserPage = (props) => {
     (item) => item.fields.type === "past"
   );
 
+  console.log(pastEvents);
+
   return (
     <>
-      <h1>Hello Ash.</h1>
-      <hr />
-      <br />
-
+      <div className="container">
+        <h1>Hello Ash.</h1>
+        <hr />
+        <br />
+      </div>
       <div className={styles.container}>
         <h3 className={styles.sectionTitles}>Upcoming events</h3>
         <div className={styles.goingBox}>
@@ -120,6 +125,8 @@ const UserPage = (props) => {
                 review={item.fields.review}
                 date={item.fields.date}
                 deleteUserData={deleteUserData}
+                updateUserData={updateUserData}
+                setUserReview={setUserReview}
               />
             ))
           )}
