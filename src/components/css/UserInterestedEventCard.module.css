@@ -3,7 +3,7 @@
   background: rgb(255, 114, 175);
   color: black;
   width: 300px;
-  height: 300px;
+  height: 350px;
   border-radius: 30px;
   padding: 25px;
   transition: background 0.5s;
@@ -11,6 +11,7 @@
   white-space: wrap;
   flex: 0 0 auto;
   position: relative;
+  overflow: scroll;
 }
 
 .box:hover {
@@ -19,4 +20,15 @@
 
 .box p {
   font-size: 18px;
+}
+
+.purchaseBtn {
+  position: absolute;
+  transform: translateX(22.5%);
+  bottom: 60px;
+}
+.goingBtn {
+  position: absolute;
+  transform: translateX(22.5%);
+  bottom: 20px;
 }

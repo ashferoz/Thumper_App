@@ -15,6 +15,7 @@ const EventCard = (props) => {
       }
       const data = await res.json();
       setEvents(data._embedded.events);
+      console.log(data)
     } catch (err) {
       console.log(err.message);
     }
@@ -38,6 +39,7 @@ const EventCard = (props) => {
             genre={item.classifications[0].genre.name}
             subGenre={item.classifications[0].subGenre.name}
             venue={item._embedded.venues[0].name}
+            saleUrl={item.url}
             getData={getData}
             getUserData={props.getUserData}
           />

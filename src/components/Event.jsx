@@ -10,7 +10,7 @@ const Event = (props) => {
         <h3>{props.band}</h3>
       </div>
       <div className={styles.imageContainer}>
-        <img src={props.image}/>
+        <img src={props.image} />
       </div>
       {showUpdateModal && (
         <EventDetailsModal
@@ -22,6 +22,7 @@ const Event = (props) => {
           genre={props.genre}
           subGenre={props.subGenre}
           venue={props.venue}
+          saleUrl={props.saleUrl}
           getData={props.getData}
           getUserData={props.getUserData}
         />

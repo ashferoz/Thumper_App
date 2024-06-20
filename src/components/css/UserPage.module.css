@@ -1,5 +1,15 @@
-.box {
+.goingBox,
+.pastBox {
   height: 340px;
+  padding-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.interestedBox{
+    height: 400px;
   padding-top: 20px;
   margin-bottom: 15px;
   display: flex;

@@ -5,7 +5,6 @@ import Button from "./Button";
 
 const OverLay = (props) => {
   const addUserData = async (type) => {
-    console.log(props);
     try {
       const res = await fetch(import.meta.env.VITE_AIRTABLE, {
         method: "POST",
@@ -22,6 +21,7 @@ const OverLay = (props) => {
             date: props.date,
             time: props.time,
             venue: props.venue,
+            saleUrl: props.saleUrl,
             type: type,
           },
         }),
@@ -63,6 +63,9 @@ const OverLay = (props) => {
               <p>
                 Genre: {props.genre}, {props.subGenre}
               </p>
+              <a href={props.saleUrl} target="_blank">
+                <Button>Purchase ticket</Button>
+              </a>
 
               <Button
                 onClick={handleGoingBtn}
@@ -95,6 +98,7 @@ const EventDetailsModal = (props) => {
           subGenre={props.subGenre}
           setShowUpdateModal={props.setShowUpdateModal}
           getData={props.getData}
+          saleUrl={props.saleUrl}
           getUserData={props.getUserData}
         />,
         document.querySelector("#root")

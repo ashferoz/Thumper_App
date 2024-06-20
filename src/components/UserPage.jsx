@@ -47,7 +47,7 @@ const UserPage = (props) => {
 
       <div className={styles.container}>
         <h3 className={styles.sectionTitles}>Upcoming events</h3>
-        <div className={styles.box}>
+        <div className={styles.goingBox}>
           {goingEvents.length === 0 ? (
             <p>You have no upcoming events.</p>
           ) : (
@@ -68,7 +68,7 @@ const UserPage = (props) => {
 
       <div className={styles.container}>
         <h3>Interested in</h3>
-        <div className={styles.box}>
+        <div className={styles.interestedBox}>
           {interestedEvents.length === 0 ? (
             <p>You have no events you're currently interested in.</p>
           ) : (
@@ -80,6 +80,7 @@ const UserPage = (props) => {
                 date={item.fields.date}
                 time={item.fields.time}
                 venue={item.fields.venue}
+                saleUrl = {item.fields.saleUrl}
                 handleDelBtn={handleDelBtn}
               />
             ))
@@ -89,7 +90,7 @@ const UserPage = (props) => {
 
       <div className={styles.container}>
         <h3>Past events</h3>
-        <div className={styles.box}>
+        <div className={styles.pastBox}>
           {pastEvents.length === 0 ? (
             <p>You have no past events.</p>
           ) : (
