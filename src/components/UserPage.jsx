@@ -30,7 +30,7 @@ const UserPage = (props) => {
       <hr />
       <br />
 
-      <div className="container">
+      <div className={styles.container}>
         <h3 className={styles.sectionTitles}>Your upcoming events</h3>
         <div className={styles.box}>
           {goingEvents.map((item) => (
@@ -46,7 +46,7 @@ const UserPage = (props) => {
         </div>
       </div>
 
-      <div className="container">
+      <div className={styles.container}>
         <h3>Interested in</h3>
         <div className={styles.box}>
           {interestedEvents.map((item) => (
@@ -62,7 +62,7 @@ const UserPage = (props) => {
         </div>
       </div>
 
-      <div className="container">
+      <div className={styles.container}>
         <h3>Reviews of past events</h3>
         <div className={styles.box}>
           {pastEvents.map((item) => (
