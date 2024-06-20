@@ -20,6 +20,26 @@ const UserPage = (props) => {
     props.getUserData();
   };
 
+  const updateUserData = async (id) => {
+    const res = await fetch(import.meta.env.VITE_AIRTABLE + id, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fields: {
+          type: 'going',
+        },
+      }),
+    });
+    if (!res.ok) {
+      throw new Error("error updating user data");
+    }
+
+    props.getUserData();
+  };
+
   useEffect(() => {
     props.getUserData();
   }, []);
@@ -34,10 +54,6 @@ const UserPage = (props) => {
   const pastEvents = props.userData.filter(
     (item) => item.fields.type === "past"
   );
-
-  const handleDelBtn = (id) => {
-    deleteUserData(id);
-  };
 
   return (
     <>
@@ -59,7 +75,7 @@ const UserPage = (props) => {
                 date={item.fields.date}
                 time={item.fields.time}
                 venue={item.fields.venue}
-                handleDelBtn={handleDelBtn}
+                deleteUserData={deleteUserData}
               />
             ))
           )}
@@ -80,8 +96,10 @@ const UserPage = (props) => {
                 date={item.fields.date}
                 time={item.fields.time}
                 venue={item.fields.venue}
-                saleUrl = {item.fields.saleUrl}
-                handleDelBtn={handleDelBtn}
+                saleUrl={item.fields.saleUrl}
+                type={item.fields.type}
+                deleteUserData={deleteUserData}
+                updateUserData={updateUserData}
               />
             ))
           )}
@@ -100,7 +118,7 @@ const UserPage = (props) => {
                 id={item.id}
                 band={item.fields.band}
                 review={item.fields.review}
-                handleDelBtn={handleDelBtn}
+                deleteUserData={deleteUserData}
               />
             ))
           )}

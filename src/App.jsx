@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import Display from "./components/Display";
 import { Navigate, Route, Routes } from "react-router-dom";
-
 import Navbar from "./components/Navbar";
 import UserPage from "./components/UserPage";
 import NotFound from "./components/NotFound";

@@ -16,8 +16,6 @@ const OverLay = (props) => {
           fields: {
             name: props.name,
             band: props.band,
-            review: props.review,
-            image: props.image,
             date: props.date,
             time: props.time,
             venue: props.venue,

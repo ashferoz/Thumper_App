@@ -6,17 +6,23 @@ import Button from "./Button";
 const UserInterestedEventCard = (props) => {
   return (
     <div className={styles.box}>
-      <DelBtn handleDelBtn={props.handleDelBtn} id={props.id} />
+      <DelBtn deleteUserData={props.deleteUserData} id={props.id} />
       <h4>{props.band}</h4>
       <hr />
       <p>Date: {props.date}</p>
       <p>Time: {props.time}</p>
       <p>Venue: {props.venue}</p>
       <a className={styles.purchaseBtn} href={props.saleUrl} target="_blank">
-        <Button >Purchase ticket</Button>
+        <Button>Purchase ticket</Button>
       </a>
       <div className={styles.goingBtn}>
-      <Button>I'm going</Button>
+        <Button
+          onClick={() => {
+            props.updateUserData(props.id);
+          }}
+        >
+          I'm going
+        </Button>
       </div>
     </div>
   );

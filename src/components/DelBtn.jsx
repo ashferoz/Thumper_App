@@ -5,7 +5,7 @@ const DelBtn = (props) => {
   return (
     <button
       className={`${styles.delBtn} fa-solid fa-xmark`}
-      onClick={()=>{props.handleDelBtn(props.id)}}
+      onClick={()=>{props.deleteUserData(props.id)}}
     />
   );
 };
