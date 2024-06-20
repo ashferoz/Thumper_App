@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "./css/Modal.module.css";
+import styles from "./css/EventDetailsModal.module.css";
 import Button from "./Button";
 
 const OverLay = (props) => {
@@ -80,7 +80,7 @@ const OverLay = (props) => {
   );
 };
 
-const DetailsModal = (props) => {
+const EventDetailsModal = (props) => {
   return (
     <>
       {ReactDOM.createPortal(
@@ -103,4 +103,4 @@ const DetailsModal = (props) => {
   );
 };
 
-export default DetailsModal;
+export default EventDetailsModal;

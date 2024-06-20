@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./css/Event.module.css";
-import DetailsModal from "./DetailsModal";
+import EventDetailsModal from "./EventDetailsModal";
 
 const Event = (props) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -13,7 +13,7 @@ const Event = (props) => {
         <img src={props.image}/>
       </div>
       {showUpdateModal && (
-        <DetailsModal
+        <EventDetailsModal
           band={props.band}
           image={props.image}
           date={props.date}

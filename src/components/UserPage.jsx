@@ -15,6 +15,10 @@ const UserPage = (props) => {
     (item) => item.fields.type === "interested"
   );
 
+  const pastEvents = props.userData.filter(
+    (item) => item.fields.type === "going"
+  );
+
   return (
     <>
       <h1>Hello Ash.</h1>
@@ -47,8 +51,8 @@ const UserPage = (props) => {
       </div>
 
       <div className="container">
-        <h3>Review past events</h3>
-        {props.userData.map((item) => (
+        <h3>Reviews of past events</h3>
+        {pastEvents.map((item) => (
           <ReviewCard
             key={item.id}
             band={item.fields.band}
