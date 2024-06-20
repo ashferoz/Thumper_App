@@ -1,50 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Event from "./Event";
+import React, { useState } from "react";
+import styles from "./css/Event.module.css";
+import EventDetailsModal from "./EventDetailsModal";
 
 const EventCard = (props) => {
-  const [events, setEvents] = useState([]);
-  const getData = async () => {
-    try {
-      const res = await fetch(
-        import.meta.env.VITE_SERVER +
-          "events.json?classificationName=music&dmaId=324&apikey=" +
-          import.meta.env.VITE_API_KEY
-      );
-      if (!res.ok) {
-        throw new Error("fetch error");
-      }
-      const data = await res.json();
-      setEvents(data._embedded.events);
-      console.log(data)
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   return (
     <div>
-      {events.map((item, index) => {
-        return (
-          <Event
-            key={index}
-            band={item.name}
-            image={item.images[6].url}
-            imageModal={item.images[6].url}
-            date={item.dates.start.localDate}
-            time={item.dates.start.localTime}
-            genre={item.classifications[0].genre.name}
-            subGenre={item.classifications[0].subGenre.name}
-            venue={item._embedded.venues[0].name}
-            saleUrl={item.url}
-            getData={getData}
-            getUserData={props.getUserData}
-          />
-        );
-      })}
+      <div className={styles.overlay} onClick={() => setShowUpdateModal(true)}>
+        <h3>{props.band}</h3>
+      </div>
+      <div className={styles.imageContainer}>
+        <img src={props.image} />
+      </div>
+      {showUpdateModal && (
+        <EventDetailsModal
+          band={props.band}
+          image={props.image}
+          date={props.date}
+          time={props.time}
+          setShowUpdateModal={setShowUpdateModal}
+          genre={props.genre}
+          subGenre={props.subGenre}
+          venue={props.venue}
+          saleUrl={props.saleUrl}
+          getData={props.getData}
+          getUserData={props.getUserData}
+        />
+      )}
     </div>
   );
 };
