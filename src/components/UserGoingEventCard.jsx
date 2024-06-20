@@ -4,8 +4,8 @@ import DelBtn from "./DelBtn";
 
 const UserGoingEventCard = (props) => {
   return (
-    <div className={styles.box}>
-      <DelBtn />
+    <div className={styles.box} >
+      <DelBtn handleDelBtn={props.handleDelBtn} id={props.id}/>
       <h4>{props.band}</h4>
       <hr />
       <p>Date: {props.date}</p>

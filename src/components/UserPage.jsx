@@ -5,6 +5,21 @@ import ReviewCard from "./ReviewCard";
 import styles from "./css/UserPage.module.css";
 
 const UserPage = (props) => {
+  const deleteUserData = async (id) => {
+    const res = await fetch(import.meta.env.VITE_AIRTABLE + id, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error("error deleting user data");
+    }
+
+    props.getUserData();
+  };
+
   useEffect(() => {
     props.getUserData();
   }, []);
@@ -20,9 +35,9 @@ const UserPage = (props) => {
     (item) => item.fields.type === "going"
   );
 
-  const handleDelBtn = () => {
-
-  }
+  const handleDelBtn = (id) => {
+    deleteUserData(id);
+  };
 
   return (
     <>
@@ -36,6 +51,7 @@ const UserPage = (props) => {
           {goingEvents.map((item) => (
             <UserGoingEventCard
               key={item.id}
+              id={item.id}
               band={item.fields.band}
               date={item.fields.date}
               time={item.fields.time}
@@ -52,6 +68,7 @@ const UserPage = (props) => {
           {interestedEvents.map((item) => (
             <UserInterestedEventCard
               key={item.id}
+              id={item.id}
               band={item.fields.band}
               date={item.fields.date}
               time={item.fields.time}
@@ -68,6 +85,7 @@ const UserPage = (props) => {
           {pastEvents.map((item) => (
             <ReviewCard
               key={item.id}
+              id={item.id}
               band={item.fields.band}
               review={item.fields.review}
               handleDelBtn={handleDelBtn}
