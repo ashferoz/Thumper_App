@@ -20,6 +20,10 @@ const UserPage = (props) => {
     (item) => item.fields.type === "going"
   );
 
+  const handleDelBtn = () => {
+
+  }
+
   return (
     <>
       <h1>Hello Ash.</h1>
@@ -36,6 +40,7 @@ const UserPage = (props) => {
               date={item.fields.date}
               time={item.fields.time}
               venue={item.fields.venue}
+              handleDelBtn={handleDelBtn}
             />
           ))}
         </div>
@@ -51,6 +56,7 @@ const UserPage = (props) => {
               date={item.fields.date}
               time={item.fields.time}
               venue={item.fields.venue}
+              handleDelBtn={handleDelBtn}
             />
           ))}
         </div>
@@ -64,6 +70,7 @@ const UserPage = (props) => {
               key={item.id}
               band={item.fields.band}
               review={item.fields.review}
+              handleDelBtn={handleDelBtn}
             />
           ))}
         </div>

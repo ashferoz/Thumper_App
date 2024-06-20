@@ -33,10 +33,11 @@
   font-size: 24px;
 }
 
-.closeBtn:active {
-  color: rgb(205, 201, 255);
+.closeBtn:active,
+.closeBtn:hover
+ {
+  color: rgb(0, 0, 0);
 }
-
 .details {
   padding: 20px;
 }
