@@ -118,6 +118,7 @@ const UserPage = (props) => {
                 id={item.id}
                 band={item.fields.band}
                 review={item.fields.review}
+                date={item.fields.date}
                 deleteUserData={deleteUserData}
               />
             ))
