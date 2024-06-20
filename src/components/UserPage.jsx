@@ -32,7 +32,7 @@ const UserPage = (props) => {
   );
 
   const pastEvents = props.userData.filter(
-    (item) => item.fields.type === "going"
+    (item) => item.fields.type === "past"
   );
 
   const handleDelBtn = (id) => {
@@ -46,51 +46,63 @@ const UserPage = (props) => {
       <br />
 
       <div className={styles.container}>
-        <h3 className={styles.sectionTitles}>Your upcoming events</h3>
+        <h3 className={styles.sectionTitles}>Upcoming events</h3>
         <div className={styles.box}>
-          {goingEvents.map((item) => (
-            <UserGoingEventCard
-              key={item.id}
-              id={item.id}
-              band={item.fields.band}
-              date={item.fields.date}
-              time={item.fields.time}
-              venue={item.fields.venue}
-              handleDelBtn={handleDelBtn}
-            />
-          ))}
+          {goingEvents.length === 0 ? (
+            <p>You have no upcoming events.</p>
+          ) : (
+            goingEvents.map((item) => (
+              <UserGoingEventCard
+                key={item.id}
+                id={item.id}
+                band={item.fields.band}
+                date={item.fields.date}
+                time={item.fields.time}
+                venue={item.fields.venue}
+                handleDelBtn={handleDelBtn}
+              />
+            ))
+          )}
         </div>
       </div>
 
       <div className={styles.container}>
         <h3>Interested in</h3>
         <div className={styles.box}>
-          {interestedEvents.map((item) => (
-            <UserInterestedEventCard
-              key={item.id}
-              id={item.id}
-              band={item.fields.band}
-              date={item.fields.date}
-              time={item.fields.time}
-              venue={item.fields.venue}
-              handleDelBtn={handleDelBtn}
-            />
-          ))}
+          {interestedEvents.length === 0 ? (
+            <p>You have no events you're currently interested in.</p>
+          ) : (
+            interestedEvents.map((item) => (
+              <UserInterestedEventCard
+                key={item.id}
+                id={item.id}
+                band={item.fields.band}
+                date={item.fields.date}
+                time={item.fields.time}
+                venue={item.fields.venue}
+                handleDelBtn={handleDelBtn}
+              />
+            ))
+          )}
         </div>
       </div>
 
       <div className={styles.container}>
-        <h3>Reviews of past events</h3>
+        <h3>Past events</h3>
         <div className={styles.box}>
-          {pastEvents.map((item) => (
-            <ReviewCard
-              key={item.id}
-              id={item.id}
-              band={item.fields.band}
-              review={item.fields.review}
-              handleDelBtn={handleDelBtn}
-            />
-          ))}
+          {pastEvents.length === 0 ? (
+            <p>You have no past events.</p>
+          ) : (
+            pastEvents.map((item) => (
+              <ReviewCard
+                key={item.id}
+                id={item.id}
+                band={item.fields.band}
+                review={item.fields.review}
+                handleDelBtn={handleDelBtn}
+              />
+            ))
+          )}
         </div>
       </div>
     </>
