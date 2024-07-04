@@ -66,5 +66,4 @@ Thumper is built using modern technologies to ensure a seamless user experience:
 - Ticketmaster API
 - Airtable
 - Postman
-- Docker
 - Fontawesome
